@@ -1,0 +1,343 @@
+/* color palette from <https://github.com/vuejs/theme> */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: black;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: yellow;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio-group input {
+  width: auto;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: gray;
+}
+
+label[for="terminos"] {
+  font-size: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/*             dividido                */
+
+html {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
+header {
+  background-color: black;
+  color: yellow;
+  padding: 2rem 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+section article {
+  transition: all 0.3s ease;
+  background-color: #fff;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  /* con esta propiedad hago que cuando pase el cursor por el cuadreo aparezca una manito*/
+}
+
+section article:hover {
+  box-shadow: 0 0.1rem 0.4rem rgba(253, 252, 252, 0.3);
+  /* con esta propiedad hago que se resalte el cuadro cuando pase por el*/
+}
+
+section article h2,
+section article p {
+  margin: 1rem;
+}
+
+footer {
+
+  background-color: #222;
+  padding: 3rem;
+  color: #fff;
+}
+
+footer section {
+  float: right;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  transition: color 0.3s ease;
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: cornflowerblue;
+}
+
+body a {
+  transition: 0.3s ease;
+  color: blue;
+  margin: 1rem 1rem;
+}
+
+body a:hover {
+  color: cornflowerblue;
+
+}
+
+.formulario {
+  display: block;
+  margin: auto;
+}
+
+#portada {
+  background-color: yellow;
+  color: black;
+}
+
+/*header*/
+header section {
+  float: right;
+}
+
+header p {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+/*prueva de codigo*/
+
+/* Estilos generales */
+#portada {
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #555;
+  border-radius: 5px;
+}
+
+/* Ocultar el botón en pantallas grandes */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: blak;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 900px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: grey;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Mostrar el menú cuando la clase "active" está presente */
+  .menu.active {
+    display: flex;
+  }
+}
+
+.menu_menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+
+}
+
+/*---------------------Menu del perfil-----------------------------*/
+
+#menuperfil,
+header {
+  background-color: yellow;
+  color: black;
+
+}
+
+.uno {
+  width: 90%;
+  background-color: yellow;
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+button:hover {
+  background: #bbb400;
+}
+
+.uva {
+  color: yellow;
+  text-decoration: none;
+}
+
+.pp {
+  color: black;
+  font-weight: bold;
+}
+
+.rata {
+  width: 600px;
+  height: 700px;
+  margin: 0 auto;
+  background-color: black;
+  border-radius: 1px;
+  border-radius: 0.5rem;
+  margin-top: 50px;
+  border-radius: 1rem;
+
+}
+
+.menu_perfil {
+  background-color: white;
+}
+
+.rata h2 {
+  color: black;
+  background-color: yellow;
+  padding: 40px;
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+.rata_menu {
+  margin-top: 5px;
+}
+
+.uno a {
+  text-decoration: none;
+}
+
+.menumenu {
+  background-color: #ffb300;
+  border: none;
+  text-decoration: none;
+}
+
+.menumenu a {
+  text-decoration: none;
+  color: black;
+
+}
