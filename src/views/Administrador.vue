@@ -143,7 +143,7 @@
       </table>
     </div>
 
-    <!-- Modal de Edición -->
+    <!-- Edición -->
     <div v-if="registroEditando" class="A6">
       <div class="A7">
         <h3>Editar {{ selectedTab.slice(0, -1) }}</h3>
