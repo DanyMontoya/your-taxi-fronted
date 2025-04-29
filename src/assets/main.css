@@ -64,7 +64,7 @@ button:hover {
   background: gray;
 }
 
-label[for="terminos"] {
+label[for='terminos'] {
   font-size: 15px;
 }
 
@@ -73,7 +73,7 @@ a {
   color: white;
 }
 
-/*                     vividivo                       */
+/*                     partido                       */
 
 html {
   font-family: 'Times New Roman', Times, serif;
@@ -121,7 +121,6 @@ section article p {
 }
 
 footer {
-
   background-color: #222;
   padding: 3rem;
   color: #fff;
@@ -153,7 +152,6 @@ body a {
 
 body a:hover {
   color: cornflowerblue;
-
 }
 
 .formulario {
@@ -176,7 +174,6 @@ header p {
   font-size: 2rem;
   font-weight: bold;
 }
-
 
 /*prueva de codigo*/
 
@@ -256,7 +253,6 @@ nav {
   text-decoration: none;
   color: black;
   font-weight: bold;
-
 }
 
 /*---------------------Menu del perfil-----------------------------*/
@@ -265,7 +261,6 @@ nav {
 header {
   background-color: yellow;
   color: black;
-
 }
 
 .uno {
@@ -278,10 +273,9 @@ header {
   cursor: pointer;
   display: block;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   text-decoration: none;
   text-align: center;
-
 }
 
 button:hover {
@@ -307,7 +301,6 @@ button:hover {
   border-radius: 0.5rem;
   margin-top: 50px;
   border-radius: 1rem;
-
 }
 
 .menu_perfil {
@@ -320,7 +313,6 @@ button:hover {
   padding: 40px;
   text-align: center;
   margin-top: 20px;
-
 }
 
 .rata_menu {
@@ -340,5 +332,13 @@ button:hover {
 .menumenu a {
   text-decoration: none;
   color: black;
+}
 
+.miel {
+  color: #bbb400;
+  text-align: center;
+}
+
+.seleccion {
+  background-color: #222;
 }

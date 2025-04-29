@@ -27,6 +27,11 @@ const router = createRouter({
           name: 'solicitar_servicio',
           component: () => import('@/views/Solicitar_servicio.vue'),
         },
+        {
+          path: '/administrador',
+          name: 'administrador',
+          component: () => import('@/views/Administrador.vue'),
+        },
       ],
     },
   ],

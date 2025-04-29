@@ -64,6 +64,14 @@
               >Solicitar servicio</RouterLink
             >
           </li>
+          <li>
+            <RouterLink
+              @click="selectedLink('administrador')"
+              to="/administrador"
+              :class="['nav-link', { active: active === 'administrador' }]"
+              >Administrador</RouterLink
+            >
+          </li>
 
           <!-- <li><a href="#">Ingresar</a></li> -->
         </ul>
