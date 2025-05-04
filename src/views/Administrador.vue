@@ -47,13 +47,67 @@
             </option>
           </select>
         </div>
-        <div v-else-if="selectedTab === 'usuarios'">
-          <input v-model="nuevoRegistro.identificacion" placeholder="Identificación" required />
-          <input v-model="nuevoRegistro.nombres" placeholder="Nombres" required />
-          <input v-model="nuevoRegistro.direccion" placeholder="Dirección" />
-          <input v-model="nuevoRegistro.ciudad" placeholder="Ciudad" />
-          <input v-model="nuevoRegistro.telefono" placeholder="Teléfono" />
-          <input v-model="nuevoRegistro.correo" placeholder="Correo electrónico" />
+        <div class="containers" v-else-if="selectedTab === 'usuarios'">
+          <!-- <input v-model="nuevoRegistro.id" placeholder="id" required /> -->
+          <div class="form-group">
+            <label for="tipoDocumento">Tipo de Documento</label>
+            <select id="tipoDocumento" v-model="nuevoRegistro.tipo_documento" required>
+              <option value="c.c">Cédula de Ciudadanía</option>
+              <option value="t.i">Tarjeta de Identidad</option>
+              <option value="c.e">Cédula de Extranjería</option>
+            </select>
+          </div>
+          <input
+            class="form-group"
+            v-model="nuevoRegistro.documento"
+            placeholder="Numero de documento"
+          />
+          <input
+            class="form-group"
+            v-model="nuevoRegistro.primer_apellido"
+            placeholder="Primer apellido"
+          />
+          <input
+            class="form-group"
+            v-model="nuevoRegistro.segundo_apellido"
+            placeholder="Segundo apellido"
+          />
+          <input class="form-group" v-model="nuevoRegistro.nombres" placeholder="Nombres" />
+          <div class="form-group">
+            <label>Género</label>
+            <div class="radio-group">
+              <label
+                ><input type="radio" value="femenino" v-model="nuevoRegistro.genero" />
+                Femenino</label
+              >
+              <label
+                ><input type="radio" value="masculino" v-model="nuevoRegistro.genero" />
+                Masculino</label
+              >
+              <label><input type="radio" value="otro" v-model="nuevoRegistro.genero" /> Otro</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input
+              type="date"
+              id="fefachaNacimiento"
+              v-model="nuevoRegistro.fecha_nacimiento"
+              required
+            />
+          </div>
+          <input
+            class="form-group"
+            v-model="nuevoRegistro.correo"
+            placeholder="Correo electrónico"
+          />
+          <input
+            class="form-group"
+            v-model="nuevoRegistro.telefono"
+            placeholder="Telefono o celular"
+          />
+          <input class="form-group" v-model="nuevoRegistro.username" placeholder="Usuario" />
+          <input class="form-group" v-model="nuevoRegistro.password" placeholder="Contraseña" />
         </div>
         <button type="submit">Guardar</button>
         <button type="button" @click="cancelarFormulario">Cancelar</button>
@@ -65,6 +119,7 @@
       <table>
         <thead>
           <tr>
+            <!-- <td>Id</td> -->
             <th>Placa</th>
             <th>Modelo</th>
             <th>Marca</th>
@@ -73,6 +128,7 @@
         </thead>
         <tbody>
           <tr v-for="vehiculo in filteredVehiculos" :key="vehiculo.id">
+            <!-- <td>{{ vehiculo.id }}</td> -->
             <td>{{ vehiculo.placa }}</td>
             <td>{{ vehiculo.modelo }}</td>
             <td>{{ vehiculo.marca }}</td>
@@ -90,6 +146,7 @@
       <table>
         <thead>
           <tr>
+            <!-- <th>Id</th> -->
             <th>Nombres</th>
             <th>Número Licencia</th>
             <th>Teléfono</th>
@@ -99,6 +156,7 @@
         </thead>
         <tbody>
           <tr v-for="taxista in filteredTaxistas" :key="taxista.id">
+            <!-- <td>{{ taxista.id }}</td> -->
             <td>{{ taxista.nombres }}</td>
             <td>{{ taxista.numero_licencia }}</td>
             <td>{{ taxista.telefono }}</td>
@@ -117,23 +175,36 @@
       <table>
         <thead>
           <tr>
-            <th>Identificación</th>
+            <th>Id</th>
+            <th>Tipo_documento</th>
+            <th>Documento</th>
+            <th>Primer_apellido</th>
+            <th>Segundo_apellido</th>
             <th>Nombres</th>
-            <th>Dirección</th>
-            <th>Ciudad</th>
-            <th>Teléfono</th>
+            <th>Genero</th>
+            <th>Fecha_nacimiento</th>
             <th>Correo</th>
+            <th>Telefono</th>
+            <th>Username</th>
+            <th>Password</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="usuario in filteredUsuarios" :key="usuario.id">
-            <td>{{ usuario.identificacion }}</td>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.tipo_documento }}</td>
+            <td>{{ usuario.documento }}</td>
+            <td>{{ usuario.primer_apellido }}</td>
+            <td>{{ usuario.segundo_apellido }}</td>
             <td>{{ usuario.nombres }}</td>
-            <td>{{ usuario.direccion }}</td>
-            <td>{{ usuario.ciudad }}</td>
-            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.genero }}</td>
+            <td>{{ usuario.fecha_nacimiento }}</td>
             <td>{{ usuario.correo }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.password }}</td>
+
             <td>
               <button @click="editarRegistro(usuario)">Editar</button>
               <button @click="eliminarRegistro(usuario)">Eliminar</button>
@@ -165,6 +236,10 @@
               :id="campo"
               :disabled="campo === 'id'"
             />
+          </div>
+          <div v-if="registroEditando && selectedTab === 'usuarios'">
+            <label for="password">Contraseña</label>
+            <input v-model="registroEditando.password" id="password" type="password" />
           </div>
           <button type="submit">Guardar</button>
           <button type="button" @click="cancelarEdicion">Cancelar</button>
@@ -223,7 +298,39 @@ export default {
     async guardarCambios() {
       try {
         const endpoint = `http://127.0.0.1:8000/api/${this.selectedTab}/${this.registroEditando.id}/`
-        await axios.put(endpoint, this.registroEditando)
+
+        let payload = {}
+
+        if (this.selectedTab === 'usuarios') {
+          payload = {
+            tipo_documento: this.registroEditando.tipo_documento,
+            documento: this.registroEditando.documento,
+            primer_apellido: this.registroEditando.primer_apellido,
+            segundo_apellido: this.registroEditando.segundo_apellido,
+            nombres: this.registroEditando.nombres,
+            genero: this.registroEditando.genero,
+            fecha_nacimiento: this.registroEditando.fecha_nacimiento,
+            correo: this.registroEditando.correo,
+            telefono: this.registroEditando.telefono,
+            username: this.registroEditando.username,
+            ...(this.registroEditando.password && { password: this.registroEditando.password }),
+          }
+        } else if (this.selectedTab === 'vehiculos') {
+          payload = {
+            placa: this.registroEditando.placa,
+            modelo: this.registroEditando.modelo,
+            marca: this.registroEditando.marca,
+          }
+        } else if (this.selectedTab === 'taxistas') {
+          payload = {
+            nombres: this.registroEditando.nombres,
+            numero_licencia: this.registroEditando.numero_licencia,
+            telefono: this.registroEditando.telefono,
+            vehiculo: this.registroEditando.vehiculo,
+          }
+        }
+
+        await axios.patch(endpoint, payload)
         alert('Cambios guardados correctamente.')
         this.registroEditando = null
         this.fetchData()
@@ -231,6 +338,7 @@ export default {
         console.error('Error al guardar cambios:', error)
       }
     },
+
     async eliminarRegistro(item) {
       if (confirm('¿Estás seguro de eliminar este registro?')) {
         try {
@@ -321,6 +429,14 @@ export default {
 }
 .A5 {
   overflow-x: auto;
+  max-height: 160px; /* Altura máxima del contenedor */
+  overflow-y: auto; /* Scroll vertical automático */
+  border: 3px solid #ccc; /* Borde opcional */
+  padding: 10px;
+}
+.usuario-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
 }
 
 /* tabla de registros */
@@ -346,6 +462,7 @@ button {
   padding: 5px 10px;
   cursor: pointer;
 }
+/*Formulario de nuevo registro en administrador */
 .A6 {
   position: fixed;
   top: 0;
@@ -357,12 +474,17 @@ button {
   align-items: center;
   justify-content: center;
   z-index: 999;
+  overflow: auto; /* Permite hacer scroll si el contenido es más grande que la pantalla */
+  padding: 20px;
 }
 .A7 {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh; /* Limita la altura del viewport */
+  overflow-y: auto; /* Habilita scroll interno */
 }
 .A7 form {
   display: flex;

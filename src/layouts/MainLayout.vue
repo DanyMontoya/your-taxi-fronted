@@ -83,7 +83,7 @@
       <RouterView />
     </main>
 
-    <footer>
+    <footer class="principal">
       <section>
         <a href="#portada">Ir al comienzo</a><br />
         <a href="mailto:danyalexis3405@gmail.com">Contáctame aquí</a>
