@@ -22,21 +22,13 @@
         <label>Usuario</label>
         <select v-model="nuevoRegistro.Usuarios" required>
           <option disabled value="">Seleccione un usuario</option>
-          <!-- {{ u.nombres }} le agregue la s -->
-          <option v-for="u in usuarios" :key="u.id" :value="u.id">{{ u.nombres }}</option>
+          <option v-for="u in usuarios" :key="u.id" :value="u.id">{{ u.nombre }}</option>
         </select>
 
         <label>Taxista</label>
-        <select
-          v-model="servicios.Taxistas"
-          @change="asignarVehiculoDesdeTaxista"
-          required
-          class="border rounded px-4 py-2"
-        >
+        <select v-model="nuevoRegistro.Taxistas" required>
           <option disabled value="">Seleccione un taxista</option>
-          <option v-for="taxista in taxistas" :key="taxista.id" :value="taxista.id">
-            {{ taxista.nombres }}
-          </option>
+          <option v-for="t in taxistas" :key="t.id" :value="t.id">{{ t.nombres }}</option>
         </select>
 
         <label>Vehículo</label>
@@ -95,7 +87,7 @@
 
           <label>Usuario</label>
           <select v-model="registroEditando.Usuarios">
-            <option v-for="u in usuarios" :key="u.id" :value="u.id">{{ u.nombres }}</option>
+            <option v-for="u in usuarios" :key="u.id" :value="u.id">{{ u.nombre }}</option>
           </select>
 
           <label>Taxista</label>
@@ -151,22 +143,14 @@ export default {
         this.servicios = servRes.data
         this.vehiculos = vehRes.data
         this.usuarios = usuRes.data
-        console.log(this.usuarios)
         this.taxistas = taxRes.data
       } catch (error) {
         console.error('Error al cargar datos:', error)
       }
     },
-    asignarVehiculoDesdeTaxista() {
-      const taxistaSeleccionado = this.taxistas.find((t) => t.id === this.servicio.Taxistas)
-      if (taxistaSeleccionado) {
-        this.servicio.Vehiculos = taxistaSeleccionado.vehiculo
-      }
-    },
-    // le faltaba la s para que me mostrara los datos en la tabla "usuario.nombres"
     obtenerNombreUsuario(id) {
       const usuario = this.usuarios.find((u) => u.id === id)
-      return usuario ? usuario.nombres : 'No encontrado'
+      return usuario ? usuario.nombre : 'No encontrado'
     },
     obtenerNombreTaxista(id) {
       const taxista = this.taxistas.find((t) => t.id === id)
@@ -227,110 +211,5 @@ export default {
 </script>
 
 <style scoped>
-.A1 {
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
-}
-.A2 {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.A2 button {
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  background-color: #ccc;
-  border-radius: 5px;
-}
-.A2 button.active {
-  background-color: #4caf50;
-  color: white;
-}
-.A3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-.A3 input {
-  width: 50%;
-  padding: 10px;
-  font-size: 16px;
-  text-align: center;
-}
-.A5 {
-  overflow-x: auto;
-  max-height: 160px; /* Altura máxima del contenedor */
-  overflow-y: auto; /* Scroll vertical automático */
-  border: 3px solid #ccc; /* Borde opcional */
-  padding: 10px;
-}
-.usuario-item {
-  padding: 8px;
-  border-bottom: 1px solid #eee;
-}
-
-/* tabla de registros */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.formulario {
-  width: 50%;
-}
-thead {
-  background-color: #f2f2f2;
-}
-th,
-td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-button {
-  margin-right: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-/*Formulario de nuevo registro en administrador */
-.A6 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  overflow: auto; /* Permite hacer scroll si el contenido es más grande que la pantalla */
-  padding: 20px;
-}
-.A7 {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  max-height: 90vh; /* Limita la altura del viewport */
-  overflow-y: auto; /* Habilita scroll interno */
-}
-.A7 form {
-  display: flex;
-  flex-direction: column;
-}
-.A7 label {
-  margin-top: 10px;
-}
-.A7 input {
-  padding: 5px;
-}
-.A7 button {
-  margin-top: 10px;
-}
+/* Puedes mantener o adaptar tus estilos existentes */
 </style>

@@ -45,7 +45,7 @@
               @click="selectedLink('sobre_nosotros')"
               to="/sobre_nosotros"
               :class="['nav-link', { active: active === 'sobre_nosotros' }]"
-              >Sobre nosotros</RouterLink
+              >Taxistas</RouterLink
             >
           </li>
           <li>
