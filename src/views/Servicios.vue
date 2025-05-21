@@ -210,6 +210,4 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Puedes mantener o adaptar tus estilos existentes */
-</style>
+<style scoped></style>

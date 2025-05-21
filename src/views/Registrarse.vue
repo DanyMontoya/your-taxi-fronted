@@ -69,12 +69,12 @@
       </div>
 
       <div class="form-group">
-        <label for="correo">Correo Electrónico</label>
+        <label for="email">email</label>
         <input
           type="email"
-          id="correo"
-          v-model="form.correo"
-          placeholder="Ingrese su correo"
+          id="email"
+          v-model="form.email"
+          placeholder="Ingrese su email"
           required
         />
       </div>
@@ -147,7 +147,7 @@ export default {
         nombre: '',
         genero: '',
         fechaNacimiento: '',
-        correo: '',
+        email: '',
         telefono: '',
         usuario: '',
         contraseña: '',
@@ -176,7 +176,7 @@ export default {
           nombres: this.form.nombre,
           genero: this.form.genero,
           fecha_nacimiento: this.form.fechaNacimiento,
-          correo: this.form.correo,
+          email: this.form.email,
           telefono: this.form.telefono,
           username: this.form.usuario,
           password: this.form.contraseña,
@@ -185,8 +185,8 @@ export default {
         alert('Registro exitoso')
         this.$router.push('/ingresar') // Solo si uso Vue Router
       } catch (error) {
-        if (error.response && error.response.data.correo) {
-          alert('El correo electrónico ya está registrado.')
+        if (error.response && error.response.data.email) {
+          alert('El email electrónico ya está registrado.')
         } else {
           alert('Ocurrió un error al registrar. Verifica los datos.')
         }

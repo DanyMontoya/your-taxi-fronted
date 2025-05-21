@@ -5,16 +5,6 @@
       <p>Your Taxi</p>
       <nav>
         <ul class="menu">
-          <!-- <li><a href="#">Solicitar servicio</a></li> -->
-          <!-- <li><a href="#">Reservar</a></li> -->
-          <!-- <li><a href="#">Sobre Nosotros</a></li> -->
-          <!-- <li><a href="#">Tutorial</a></li> -->
-          <!-- <li><a href="#">Registrarse</a></li> -->
-          <!-- <li>
-            <RouterLink @click="selectedLink('registrarse')" to="/registrarse"
-              :class="['nav-link', active === 'registrarse' ? 'active' : '']"><i class="bi bi-list-stars"></i>
-              Registrarse</RouterLink>
-          </li> -->
           <li>
             <RouterLink
               @click="selectedLink('registrarse')"
@@ -78,9 +68,9 @@
         <button class="menu-toggle">☰</button>
       </nav>
     </header>
-
+    <!-- si no  da la prueva eliminar :usurio="usuario" /////////////////////////////////////////////////////// -->
     <main>
-      <RouterView />
+      <RouterView :usuario="usuario" />
     </main>
 
     <footer class="principal">
@@ -97,7 +87,21 @@
 </template>
 
 <script>
-// va codigo js
+export default {
+  data() {
+    return {
+      usuario: {
+        nombres: 'Dany',
+        primer_apellido: 'Montoya',
+        segundo_apellido: 'Torres',
+        documento: '12345678',
+        email: 'dany@example.com',
+        username: 'dany_user',
+        telefono: '3010000000',
+      },
+    }
+  },
+}
 </script>
 
 <style scoped></style>

@@ -98,7 +98,7 @@
           </div>
           <input
             class="form-group"
-            v-model="nuevoRegistro.correo"
+            v-model="nuevoRegistro.email"
             placeholder="Correo electrónico"
           />
           <input
@@ -183,7 +183,7 @@
             <th>Nombres</th>
             <th>Genero</th>
             <th>Fecha_nacimiento</th>
-            <th>Correo</th>
+            <th>email</th>
             <th>Telefono</th>
             <th>Username</th>
             <th>Password</th>
@@ -200,7 +200,7 @@
             <td>{{ usuario.nombres }}</td>
             <td>{{ usuario.genero }}</td>
             <td>{{ usuario.fecha_nacimiento }}</td>
-            <td>{{ usuario.correo }}</td>
+            <td>{{ usuario.email }}</td>
             <td>{{ usuario.telefono }}</td>
             <td>{{ usuario.username }}</td>
             <td>{{ usuario.password }}</td>
@@ -310,7 +310,7 @@ export default {
             nombres: this.registroEditando.nombres,
             genero: this.registroEditando.genero,
             fecha_nacimiento: this.registroEditando.fecha_nacimiento,
-            correo: this.registroEditando.correo,
+            email: this.registroEditando.email,
             telefono: this.registroEditando.telefono,
             username: this.registroEditando.username,
             ...(this.registroEditando.password && { password: this.registroEditando.password }),
@@ -354,6 +354,10 @@ export default {
     async agregarRegistro() {
       try {
         const endpoint = `http://127.0.0.1:8000/api/${this.selectedTab}/`
+
+        // agregue esta linea 11/05/2025
+        console.log(this.nuevoRegistro)
+
         await axios.post(endpoint, this.nuevoRegistro)
         alert('Registro agregado correctamente.')
         this.mostrarFormulario = false
